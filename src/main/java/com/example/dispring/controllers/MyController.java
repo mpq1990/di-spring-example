@@ -1,10 +1,17 @@
 package com.example.dispring.controllers;
 
+import com.example.dispring.services.GreetingService;
 import org.springframework.stereotype.Controller;
 
 @Controller
 public class MyController {
-    public void hello() {
-        System.out.println("Hello!");
+    private GreetingService greetingService;
+
+    public MyController(GreetingService greetingService) {
+        this.greetingService = greetingService;
+    }
+
+    public String hello() {
+        return greetingService.sayGreeting();
     }
 }
