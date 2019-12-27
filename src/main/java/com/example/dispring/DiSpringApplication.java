@@ -5,6 +5,7 @@ import com.example.dispring.controllers.MyController;
 import com.example.dispring.controllers.PropertyInjectedController;
 import com.example.dispring.controllers.SetterInjectedController;
 import com.example.dispring.examplebeans.FakeDataSource;
+import com.example.dispring.examplebeans.FakeJMSBroker;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -26,6 +27,12 @@ public class DiSpringApplication {
         System.out.println(fakeDataSource.getUser());
         System.out.println(fakeDataSource.getPassword());
         System.out.println(fakeDataSource.getUrl());
+
+
+        FakeJMSBroker fakeJMSBroker = ctx.getBean(FakeJMSBroker.class);
+        System.out.println(fakeJMSBroker.getUserName());
+        System.out.println(fakeJMSBroker.getPassword());
+        System.out.println(fakeJMSBroker.getUrl());
     }
 
 }
