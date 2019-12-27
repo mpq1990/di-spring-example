@@ -37,7 +37,7 @@ public class PropertyConfig {
     @Value("${di.jms.password}")
     String jmsPassword;
 
-    @Value("di.jms.url")
+    @Value("${di.jms.url}")
     String jmsUrl;
 
     @Bean
