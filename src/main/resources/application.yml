@@ -3,3 +3,11 @@ di:
     username: JMS USERNAME
     password: SOMESECUREPASSWORD
     url: testjms.broker.de
+---
+spring:
+  profiles: de
+di:
+  jms:
+    username: German JMS USERNAME
+    password: German SOMESECUREPASSWORD
+    url: German testjms.broker.de
