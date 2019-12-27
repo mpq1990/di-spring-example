@@ -1,5 +1,9 @@
 package com.example.dispring.services;
 
+
+//@Service
+//@Primary
+//@Profile({"en", "default"})
 public class PrimaryGreetingService implements GreetingService {
 
     private GreetingRepository greetingRepository;

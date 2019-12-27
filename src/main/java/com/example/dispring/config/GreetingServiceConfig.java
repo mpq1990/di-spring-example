@@ -1,8 +1,6 @@
 package com.example.dispring.config;
 
-import com.example.dispring.services.GreetingRepository;
-import com.example.dispring.services.GreetingService;
-import com.example.dispring.services.GreetingServiceFactory;
+import com.example.dispring.services.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -10,6 +8,19 @@ import org.springframework.context.annotation.Profile;
 
 @Configuration
 public class GreetingServiceConfig {
+
+    @Bean
+    @Profile({"default", "first"})
+    GreetingRepository firstGreetingRepository() {
+        return new GreetingRepositoryImpl();
+    }
+
+    @Bean
+    @Profile("second")
+    GreetingRepository secondGreetingRepositiry() {
+        return new GreetingRepositoryTwo();
+    }
+
     @Bean
     GreetingServiceFactory greetingServiceFactory(GreetingRepository greetingRepository) {
         return new GreetingServiceFactory(greetingRepository);
@@ -21,6 +32,7 @@ public class GreetingServiceConfig {
     GreetingService primaryGreetingService(GreetingServiceFactory greetingServiceFactory) {
         return greetingServiceFactory.createGreetingService("en");
     }
+
 
     @Bean
     @Primary
